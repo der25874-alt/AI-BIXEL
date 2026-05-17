@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>صحيفة AI بكسل</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Tahoma,Arial,sans-serif;
+background:#050510;
+color:#f4f4ff;
+line-height:1.9;
+}
+
+a{
+color:#00d9ff;
+text-decoration:none;
+}
+
+a:hover{
+color:#b14cff;
+}
+
+header{
+background:#080816;
+padding:14px 28px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #7b2cff;
+position:sticky;
+top:0;
+z-index:99;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+width:82px;
+height:82px;
+border-radius:16px;
+}
+
+.logo h1{
+margin:0;
+color:#00d9ff;
+font-size:28px;
+}
+
+nav{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+nav a{
+color:white;
+font-weight:bold;
+background:#111127;
+padding:8px 12px;
+border-radius:20px;
+border:1px solid #292956;
+}
+
+.hero{
+padding:75px 30px;
+text-align:center;
+background:linear-gradient(135deg,#09091d,#16002e,#001a2e);
+}
+
+.hero h2{
+font-size:52px;
+margin:0;
+color:#00d9ff;
+}
+
+.hero span{
+color:#b14cff;
+}
+
+.hero p{
+font-size:20px;
+color:#ddd;
+}
+
+.layout{
+width:94%;
+margin:auto;
+display:grid;
+grid-template-columns:3fr 1fr;
+gap:25px;
+padding:35px 0;
+}
+
+.section-title{
+color:#00d9ff;
+border-right:6px solid #b14cff;
+padding-right:12px;
+margin:35px 0 20px;
+font-size:30px;
+}
+
+.card{
+background:#101020;
+border:1px solid #7b2cff;
+border-radius:20px;
+padding:22px;
+margin-bottom:28px;
+box-shadow:0 0 20px #7b2cff33;
+}
+
+.card h3{
+color:#b14cff;
+font-size:25px;
+}
+
+.card img{
+width:100%;
+border-radius:16px;
+margin:14px 0;
+}
+
+.ref{
+background:#070712;
+border-right:4px solid #00d9ff;
+padding:12px;
+margin-top:16px;
+border-radius:10px;
+font-size:14px;
+}
+
+.sidebar{
+position:sticky;
+top:120px;
+height:max-content;
+}
+
+.side-box{
+background:#101020;
+border:1px solid #00d9ff;
+border-radius:18px;
+padding:18px;
+margin-bottom:20px;
+}
+
+footer{
+text-align:center;
+background:#080816;
+padding:26px;
+border-top:1px solid #7b2cff;
+color:#ccc;
+margin-top:20px;
+}
+
+.team-list{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.team-list div{
+background:#080816;
+padding:14px;
+border-radius:14px;
+text-align:center;
+}
+
+.nav-buttons{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+gap:10px;
+}
+
+.nav-buttons a{
+background:#7b2cff;
+padding:10px 18px;
+border-radius:12px;
+color:white;
+font-weight:bold;
+text-decoration:none;
+}
+
+.nav-buttons a:hover{
+background:#00d9ff;
+color:black;
+}
+
+@media(max-width:850px){
+
+.layout{
+grid-template-columns:1fr;
+}
+
+.sidebar{
+position:static;
+}
+
+header{
+display:block;
+text-align:center;
+}
+
+.logo{
+justify-content:center;
+margin-bottom:12px;
+}
+
+nav{
+justify-content:center;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+<img src="https://i.ibb.co/wNGYgVpT/CE622-E68-9-C08-4121-B724-22-A97-D74-F511.png">
+
+<h1>AI بكسل</h1>
+
+</div>
+
+<nav>
+
+<a href="#news">الأخبار</a>
+<a href="#articles">المقالات</a>
+<a href="#reports">التقارير</a>
+<a href="#interviews">المقابلات</a>
+<a href="#about">من نحن</a>
+<a href="#team">الفريق</a>
+
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<h2>AI <span>بكسل</span></h2>
+
+<p>
+صحيفة رقمية تهتم بالذكاء الاصطناعي والألعاب الإلكترونية والترفيه الرقمي
+</p>
+
+</section>
+
+<div class="layout">
+
+<main>
+
+<section id="news">
+
+<h2 class="section-title">الأخبار</h2>
+
+<div class="card">
+
+<h3>
+Team Falcons يحقق إنجازًا عالميًا بتتويجه ببطولة Warzone في الرياض
+</h3>
+
+<img src="https://i.ibb.co/XZ8mhdLy/0410a5a1-6a89-4f9c-8708-e3ba6385e89c.jpg">
+
+<p>
+شهدت العاصمة السعودية الرياض تتويج فريق Team Falcons السعودي ببطولة “Call of Duty: Warzone”.
+</p>
+
+<div class="nav-buttons">
+
+<a href="#home">⬅ السابق</a>
+
+<a href="#articles">التالي ➡</a>
+
+</div>
+
+<div class="ref">
+
+المرجع :
+<a href="https://www.spa.gov.sa/en/N2134531" target="_blank">
+وكالة الأنباء السعودية
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>
+اللاعبة السعودية تالا المازروعي تصنع التاريخ
+</h3>
+
+<img src="https://i.ibb.co/cKTTMJMz/3ef47e92-4e6f-47ba-9ba6-39b168a0118a.jpg">
+
+<p>
+حققت اللاعبة السعودية تالا المازروعي إنجازًا تاريخيًا.
+</p>
+
+<div class="nav-buttons">
+
+<a href="#news">⬅ السابق</a>
+
+<a href="#articles">التالي ➡</a>
+
+</div>
+
+<div class="ref">
+
+المرجع :
+<a href="https://saudigazette.com.sa/article/656051" target="_blank">
+Saudi Gazette
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="articles">
+
+<h2 class="section-title">المقالات</h2>
+
+<div class="card">
+
+<h3>
+كيف يغير الذكاء الاصطناعي تجربة الألعاب الإلكترونية؟
+</h3>
+
+<img src="https://i.ibb.co/8L8dnDND/IMG-1697.jpg">
+
+<p>
+أظهرت أبحاث علمية جديدة أن الغالبية العظمى من ممارسي الألعاب الإلكترونية يستمتعون بالتفاعل واللعب مع شخصيات مدعومة بتقنيات الذكاء الاصطناعي.
+</p>
+
+<div class="nav-buttons">
+
+<a href="#news">⬅ السابق</a>
+
+<a href="#reports">التالي ➡</a>
+
+</div>
+
+<div class="ref">
+
+المرجع :
+صحيفة الوئام
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>
+نموذج Muse يغيّر مستقبل الألعاب
+</h3>
+
+<img src="https://i.ibb.co/HfqJyyB7/IMG-1698.jpg">
+
+<p>
+تمكنت شركة مايكروسوفت من تطوير نموذج Muse الذي أحدث طفرة في الألعاب الإلكترونية.
+</p>
+
+<div class="nav-buttons">
+
+<a href="#articles">⬅ السابق</a>
+
+<a href="#reports">التالي ➡</a>
+
+</div>
+
+<div class="ref">
+
+المرجع :
+صحيفة الوطن البحرينية
+
+</div>
+
+</div>
+
+</section>
+
+<section id="reports">
+
+<h2 class="section-title">التقارير</h2>
+
+<div class="card">
+
+<h3>
+دخول الذكاء الاصطناعي كل أركان صناعة الترفيه
+</h3>
+
+<img src="https://i.ibb.co/rRRSKm4W/b47f25b0-c924-4374-b3b4-1d85c5ea635f.jpg">
+
+<p>
+يشهد عالم الترفيه تحولًا جذريًا بسبب الذكاء الاصطناعي.
+</p>
+
+<div class="nav-buttons">
+
+<a href="#articles">⬅ السابق</a>
+
+<a href="#interviews">التالي ➡</a>
+
+</div>
+
+<div class="ref">
+
+المرجع :
+<a href="https://share.google/iwTBus7Dx1mSY4TEZ" target="_blank">
+البوابة التقنية
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="interviews">
+
+<h2 class="section-title">المقابلات</h2>
+
+<div class="card">
+
+<h3>
+الذكاء الاصطناعي والرياضات الإلكترونية
+</h3>
+
+<img src="https://i.ibb.co/FkwxhVvv/6a94b8d2-7d63-41a0-8171-7e0f73a06ca5.jpg">
+
+<p>
+ناقش المتحدثون مستقبل الذكاء الاصطناعي في الألعاب الإلكترونية.
+</p>
+
+<div class="nav-buttons">
+
+<a href="#reports">⬅ السابق</a>
+
+<a href="#about">التالي ➡</a>
+
+</div>
+
+<div class="ref">
+
+المصدر :
+<a href="https://www.youtube.com/live/IDgmQtTH_1s" target="_blank">
+SEF Awards
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="section-title">من نحن</h2>
+
+<div class="card">
+
+<p>
+صحيفة AI بكسل صحيفة رقمية متخصصة في الذكاء الاصطناعي والألعاب الإلكترونية والترفيه الرقمي.
+</p>
+
+<div class="nav-buttons">
+
+<a href="#interviews">⬅ السابق</a>
+
+<a href="#team">التالي ➡</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="team">
+
+<h2 class="section-title">الفريق</h2>
+
+<div class="card">
+
+<div class="team-list">
+
+<div>رحاب الجهني</div>
+<div>أمل العوفي</div>
+<div>أسيل النومي</div>
+<div>ريناد الحربي</div>
+
+</div>
+
+<div class="nav-buttons">
+
+<a href="#about">⬅ السابق</a>
+
+<a href="#home">التالي ➡</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<aside class="sidebar">
+
+<div class="side-box">
+
+<h3>الأكثر قراءة</h3>
+
+<ul>
+
+<li>
+<a href="#articles">
+كيف يغير الذكاء الاصطناعي تجربة الألعاب؟
+</a>
+</li>
+
+<li>
+<a href="#news">
+Team Falcons يحقق البطولة
+</a>
+</li>
+
+<li>
+<a href="#reports">
+دخول الذكاء الاصطناعي صناعة الترفيه
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</aside>
+
+</div>
+
+<footer>
+
+<p>
+© 2026 صحيفة AI بكسل
+</p>
+
+</footer>
+
+</body>
+
+</html>
