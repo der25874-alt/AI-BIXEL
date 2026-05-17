@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صحيفة AI بكسل</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#050510;color:#f4f4ff;line-height:1.9}
+a{color:#00d9ff;text-decoration:none}
+a:hover{color:#b14cff}
+button{font-family:Tahoma,Arial,sans-serif}
+header{
+background:#080816;
+padding:14px 28px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #7b2cff;
+position:sticky;
+top:0;
+z-index:99;
+box-shadow:0 0 15px #7b2cff55;
+}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{width:75px;height:75px;border-radius:16px;object-fit:cover}
+.logo h1{margin:0;color:#00d9ff;font-size:28px}
+nav{display:flex;flex-wrap:wrap;gap:10px}
+nav button{
+color:white;
+font-weight:bold;
+background:#111127;
+padding:8px 12px;
+border-radius:20px;
+border:1px solid #292956;
+cursor:pointer;
+}
+.hero{
+padding:55px 25px;
+text-align:center;
+background:linear-gradient(135deg,#09091d,#16002e,#001a2e);
+}
+.hero h2{font-size:42px;margin:0;color:#00d9ff}
+.hero span{color:#b14cff}
+.hero p{font-size:19px;color:#ddd}
+.layout{
+width:94%;
+margin:auto;
+display:grid;
+grid-template-columns:3fr 1fr;
+gap:25px;
+padding:30px 0;
+}
+.section-title{
+color:#00d9ff;
+border-right:6px solid #b14cff;
+padding-right:12px;
+margin:35px 0 20px;
+font-size:30px;
+}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{
+background:#101020;
+border:1px solid #7b2cff;
+border-radius:20px;
+padding:20px;
+margin-bottom:24px;
+box-shadow:0 0 20px #7b2cff33;
+}
+.card h3{color:#b14cff;font-size:22px;margin-top:0}
+.card img{width:100%;height:210px;object-fit:cover;border-radius:16px;margin:10px 0}
+.article-img{
+width:100%;
+max-width:620px;
+max-height:340px;
+object-fit:cover;
+border-radius:18px;
+display:block;
+margin:18px auto;
+}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gallery img{width:100%;height:180px;object-fit:cover;border-radius:16px}
+.btn{
+display:inline-block;
+background:#7b2cff;
+color:white;
+padding:10px 18px;
+border-radius:14px;
+font-weight:bold;
+margin-top:10px;
+cursor:pointer;
+border:none;
+font-size:16px;
+}
+.btn:hover{background:#00d9ff;color:#050510}
+.nav-buttons{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.nav-buttons button{
+background:#7b2cff;
+color:white;
+padding:10px 18px;
+border-radius:12px;
+font-weight:bold;
+cursor:pointer;
+border:none;
+}
+.nav-buttons button:hover{background:#00d9ff;color:black}
+.ref{
+background:#070712;
+border-right:4px solid #00d9ff;
+padding:12px;
+margin-top:16px;
+border-radius:10px;
+font-size:14px;
+word-break:break-word;
+}
+.sidebar{position:sticky;top:115px;height:max-content}
+.side-box{
+background:#101020;
+border:1px solid #00d9ff;
+border-radius:18px;
+padding:18px;
+margin-bottom:20px;
+}
+.side-box h3{color:#00d9ff;margin-top:0}
+.side-box button{
+background:none;
+border:none;
+color:#00d9ff;
+cursor:pointer;
+font-size:15px;
+text-align:right;
+}
+.team-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.team-list div{
+background:#080816;
+padding:14px;
+border-radius:14px;
+text-align:center;
+border:1px solid #292956;
+font-weight:bold;
+}
+.page{display:none}
+.page.active{display:block}
+footer{
+text-align:center;
+background:#080816;
+padding:26px;
+border-top:1px solid #7b2cff;
+color:#ccc;
+margin-top:20px;
+}
+@media(max-width:850px){
+.layout{grid-template-columns:1fr}
+.grid{grid-template-columns:1fr}
+.sidebar{position:static}
+header{display:block;text-align:center}
+.logo{justify-content:center;margin-bottom:12px}
+nav{justify-content:center}
+.hero h2{font-size:34px}
+.gallery{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">
+<img src="https://i.ibb.co/wNGYgVpT/CE622-E68-9-C08-4121-B724-22-A97-D74-F511.png">
+<h1>AI بكسل</h1>
+</div>
+<nav>
+<button onclick="showHome()">الرئيسية</button>
+<button onclick="goSection('news')">الأخبار</button>
+<button onclick="goSection('articles')">المقالات</button>
+<button onclick="goSection('reports')">التقارير</button>
+<button onclick="goSection('interviews')">المقابلات</button>
+<button onclick="goSection('about')">من نحن</button>
+<button onclick="goSection('team')">الفريق</button>
+</nav>
+</header>
+<div id="homePage" class="page active">
+<section class="hero">
+<h2>AI <span>بكسل</span></h2>
+<p>صحيفة رقمية تهتم بالذكاء الاصطناعي والألعاب الإلكترونية والترفيه الرقمي</p>
+</section>
+<div class="layout">
+<main>
+<section id="news">
+<h2 class="section-title">الأخبار</h2>
+<div class="grid">
+<div class="card">
+<h3>Team Falcons يحقق إنجازًا عالميًا بتتويجه ببطولة Warzone في الرياض</h3>
+<img src="https://i.ibb.co/XZ8mhdLy/0410a5a1-6a89-4f9c-8708-e3ba6385e89c.jpg">
+<p>فريق Team Falcons السعودي يتوج ببطولة Warzone ضمن منافسات كأس العالم للرياضات الإلكترونية في الرياض.</p>
+<button class="btn" onclick="showArticle('falcons')">اقرأ المزيد</button>
+</div>
+<div class="card">
+<h3>اللاعبة السعودية تالا المازروعي تصنع التاريخ وتحقق ذهبية آسيوية</h3>
+<img src="https://i.ibb.co/cKTTMJMz/3ef47e92-4e6f-47ba-9ba6-39b168a0118a.jpg">
+<p>إنجاز سعودي تاريخي في منافسات eFootball ضمن بطولة الألعاب الآسيوية للشباب.</p>
+<button class="btn" onclick="showArticle('tala')">اقرأ المزيد</button>
+</div>
+</div>
+</section>
+<section id="articles">
+<h2 class="section-title">المقالات</h2>
+<div class="grid">
+<div class="card">
+<h3>كيف يغير الذكاء الاصطناعي تجربة الألعاب الإلكترونية؟</h3>
+<img src="https://i.ibb.co/8L8dnDND/IMG-1697.jpg">
+<p>دراسة تكشف أن اللاعبين يستمتعون بالتفاعل مع شخصيات مدعومة بالذكاء الاصطناعي.</p>
+<button class="btn" onclick="showArticle('aiGames')">اقرأ المزيد</button>
+</div>
+<div class="card">
+<h3>نموذج للذكاء الاصطناعي يتسبب في انقلاب بعالم الألعاب الإلكترونية.. ما القصة؟</h3>
+<img src="https://i.ibb.co/HfqJyyB7/IMG-1698.jpg">
+<p>مايكروسوفت تطور نموذج Muse لتحويل الأفكار إلى ألعاب وتجارب افتراضية.</p>
+<button class="btn" onclick="showArticle('muse')">اقرأ المزيد</button>
+</div>
+</div>
+</section>
+<section id="reports">
+<h2 class="section-title">التقارير</h2>
+<div class="grid">
+<div class="card">
+<h3>تقرير: دخول الذكاء الاصطناعي كل أركان صناعة الترفيه</h3>
+<img src="https://i.ibb.co/rRRSKm4W/b47f25b0-c924-4374-b3b4-1d85c5ea635f.jpg">
+<p>الذكاء الاصطناعي يدخل مجالات الموسيقى والتمثيل الرقمي والإخراج السينمائي.</p>
+<button class="btn" onclick="showArticle('entertainment')">اقرأ المزيد</button>
+</div>
+<div class="card">
+<h3>تقرير: موجة استياء واسعة تضرب موظفي ميتا بسبب الذكاء الاصطناعي</h3>
+<img src="https://i.ibb.co/KcwNYg8L/77ca3500-288e-4124-ab90-709c9b8ce965.jpg">
+<p>قلق داخلي في ميتا بسبب الخصوصية والأتمتة وتدريب الأنظمة الذكية.</p>
+<button class="btn" onclick="showArticle('meta')">اقرأ المزيد</button>
+</div>
+</div>
+</section>
+<section id="interviews">
+<h2 class="section-title">المقابلات</h2>
+<div class="grid">
+<div class="card">
+<h3>مقابلة: الذكاء الاصطناعي والرياضات الإلكترونية.. مستقبل جديد للترفيه الرقمي</h3>
+<img src="https://i.ibb.co/FkwxhVvv/6a94b8d2-7d63-41a0-8171-7e0f73a06ca5.jpg">
+<p>لقاء من SEF Awards 2025 يناقش أثر الذكاء الاصطناعي في الألعاب والرياضات الإلكترونية.</p>
+<button class="btn" onclick="showArticle('sef')">اقرأ المزيد</button>
+</div>
+<div class="card">
+<h3>ثامر البلاّع: البيانات هي وقود المستقبل</h3>
+<img src="https://i.ibb.co/qF7zFFnh/a7389d59-6393-4bd5-b346-7df04685a7fa.jpg">
+<p>حوار عن البيانات والذكاء الاصطناعي والرياضة والقيمنق في السعودية.</p>
+<button class="btn" onclick="showArticle('thamer')">اقرأ المزيد</button>
+</div>
+</div>
+</section>
+<section id="about">
+<h2 class="section-title">من نحن</h2>
+<div class="card">
+<p>صحيفة <b>AI بكسل</b> هي صحيفة رقمية متخصصة في تغطية أخبار الذكاء الاصطناعي والألعاب الإلكترونية والرياضات الرقمية.</p>
+<p>نهدف إلى تقديم محتوى مبسط ومفيد يجمع بين التقنية والترفيه، ويعرض أحدث الأخبار والمقالات والتقارير والمقابلات في عالم القيمنق والذكاء الاصطناعي.</p>
+<p>نسعى إلى توعية القارئ بأثر الذكاء الاصطناعي في صناعة الألعاب والترفيه، وإبراز دور المملكة العربية السعودية في دعم قطاع الرياضات الإلكترونية والتحول الرقمي.</p>
+</div>
+</section>
+<section id="team">
+<h2 class="section-title">الفريق</h2>
+<div class="card">
+<div class="team-list">
+<div>رحاب الجهني</div>
+<div>أمل العوفي</div>
+<div>أسيل الهومي</div>
+<div>ريناد الحربي</div>
+</div>
+</div>
+</section>
+</main>
+<aside class="sidebar">
+<div class="side-box">
+<h3>الأكثر قراءة</h3>
+<ol>
+<li><button onclick="showArticle('aiGames')">كيف يغير الذكاء الاصطناعي تجربة الألعاب؟</button></li>
+<li><button onclick="showArticle('falcons')">Team Falcons يحقق بطولة Warzone</button></li>
+<li><button onclick="showArticle('muse')">نموذج Muse يغير مستقبل الألعاب</button></li>
+<li><button onclick="showArticle('tala')">تالا المازروعي تحقق ذهبية آسيوية</button></li>
+<li><button onclick="showArticle('entertainment')">الذكاء الاصطناعي وصناعة الترفيه</button></li>
+</ol>
+</div>
+</aside>
+</div>
+</div>
+<div id="articlePage" class="page">
+<section class="hero">
+<h2 id="articleTitle"></h2>
+<p>صحيفة AI بكسل</p>
+</section>
+<div class="layout">
+<main>
+<article class="card" id="articleContent"></article>
+</main>
+<aside class="sidebar">
+<div class="side-box">
+<h3>تنقل سريع</h3>
+<ul>
+<li><button onclick="showHome()">الصفحة الرئيسية</button></li>
+<li><button onclick="goSection('news')">الأخبار</button></li>
+<li><button onclick="goSection('articles')">المقالات</button></li>
+<li><button onclick="goSection('reports')">التقارير</button></li>
+<li><button onclick="goSection('interviews')">المقابلات</button></li>
+</ul>
+</div>
+</aside>
+</div>
+</div>
+<footer>
+<p>© 2026 صحيفة AI بكسل - جميع الحقوق محفوظة</p>
+</footer>
+<script>
+const articles = {
+aiGames:{
+title:"كيف يغير الذكاء الاصطناعي تجربة الألعاب الإلكترونية؟",
+img:"https://i.ibb.co/8L8dnDND/IMG-1697.jpg",
+ref:"صحيفة الوئام",
+body:[
+"أظهرت أبحاث علمية جديدة أن الغالبية العظمى من ممارسي الألعاب الإلكترونية يستمتعون بالتفاعل واللعب مع شخصيات غير قابلة للعب مدعومة بتقنيات الذكاء الاصطناعي المتقدمة.",
+"وكشفت الدراسة، التي أجرتها «جامعة بريستول» البريطانية أن نسبة تتجاوز 90% من اللاعبين يجدون هذه التجربة التفاعلية ممتعة ومجزية إلى حد بعيد.",
+"وشملت الدراسة البحثية عينة مكونة من 68 شخصاً، مقسمين إلى 31 من الذكور، و31 من الإناث، وسبعة أشخاص غير محددي الجنس، حيث طُلب منهم تجربة لعبة الغموض والقتل التي طورها الاستوديو والتي تحمل اسم «ديد ميت»، وتعتمد فكرة اللعبة بشكل أساسي على قيام المستخدمين بتوجيه أسئلة واستجواب المشتبه بهم لحل اللغز.",
+"وقد أسفرت نتائج التحقيق عن أرقام لافتة، إذ عبر 95% من المشاركين في الدراسة عن استمتاعهم الكبير بالتجربة، في حين وجد 97% منهم أن ممارسة اللعبة كانت بمثابة تجربة مجزية وذات قيمة. وعلاوة على ذلك، أفاد 75% من اللاعبين أن اللعبة أتاحت لهم مساحة لـ«التعبير عن أنفسهم أو اتخاذ قرارات وخيارات ذات مغزى».",
+"وفي هذا السياق، أوضح الباحثون في «جامعة بريستول» أن جميع هذه المشاعر والآراء الإيجابية ظلت ثابتة ومطردة عبر مختلف أنواع الألعاب التي تم تضمينها في نطاق الدراسة.",
+"ومن أبرز الانطباعات التي عبر عنها المشاركون هو كيف أتاحت لهم الشخصيات المدعومة بالذكاء الاصطناعي مساحة غير مسبوقة لحرية التعبير.",
+"وفي هذا الصدد، كتب أحد المشاركين واصفاً تجربته: «لقد وجدت الأمر مجزياً حقاً، تماماً مثل ابتكار أسئلتي الخاصة لمرة واحدة»، ورغم ذلك الإطراء، لاحظ الباحثون القائمون على الدراسة أن هذه الحرية المطلقة قد تصبح ساحقة ومربكة لبعض اللاعبين نتيجة لغياب التوجيه الواضح والمسار المحدد.",
+"وعلق أحد اللاعبين على هذه النقطة قائلاً: «يمكن أن تكون الحرية مبهجة ومثيرة للغاية في البداية، وتشعر بأنها غامرة ورائعة، ولكنها في الوقت ذاته يمكن أن تشعرك بالارتباك الشديد».",
+"ومن جانبه، صرح الدكتور «ريتشارد كول»، الباحث الرئيسي في المشروع، قائلاً: «تساعد هذه الأبحاث في وضع أساس واقعي للنقاش المشحون عاطفياً حول دور الذكاء الاصطناعي في قطاع الألعاب».",
+"وأضاف: «تقوم الدراسة بذلك من خلال وضع اللاعب في قلب هذا النقاش، وسؤاله مباشرة عما يشعر به تجاه التجارب المدعومة بالذكاء الاصطناعي على أرض الواقع وفي الممارسة العملية، وليس فقط من الناحية النظرية البحتة».",
+"وفي السياق ذاته، أضاف «توماس كين»، المؤسس المشارك لاستوديو «مينينج ماشين»: «يرفض اللاعبون وينتقدون الذكاء الاصطناعي الذي يسلبهم حس الإبداع. ولكن عندما يتم توظيف الذكاء الاصطناعي لتشغيل أنواع جديدة كلياً من التجارب التفاعلية، فإن الأمر يختلف جذرياً وتصبح القصة مختلفة تماماً».",
+"وتأتي تصريحات «كين» لتؤكد صحة وموثوقية ردود الفعل العكسية والانتقادات التي طالت بعض استخدامات الذكاء الاصطناعي داخل عملية تطوير الألعاب مؤخراً، ففي نهاية العام الماضي، قام موقع «يورو جيمر» الشقيق بتخفيض تقييم لعبة إطلاق النار «آرك رايدرز» بسبب استخدامها لتقنيات الذكاء الاصطناعي لتوليد الخطوط الصوتية، في حين حذرت الممثلة الحائزة على جائزة «بافتا»، «جين بيري»، من التهديد الحقيقي والملموس الذي تشكله هذه التكنولوجيا المتطورة على فناني الأداء والممثلين داخل الألعاب."
+]
+},
+muse:{
+title:"نموذج للذكاء الاصطناعي يتسبب في انقلاب بعالم الألعاب الإلكترونية.. ما القصة؟",
+img:"https://i.ibb.co/HfqJyyB7/IMG-1698.jpg",
+ref:"صحيفة الوطن البحرينية",
+body:[
+"تمكنت شركة مايكروسوفت من التقدم بصورة مبهرة في مجال الذكاء الاصطناعي، حيث أصبحت في المنافسة الأكبر مع عمالقة الذكاء الاصطناعي، مثل: open AI، حيث اعتمدت على تطوير تقنية النماذج الخاصة بها.",
+"وتمكنت الشركة من تطوير نموذج ذكاء اصطناعي عبقري، يمثل طفرة ستحدث انقلابا في عالم الألعاب الإلكترونية، أطلقت عليه Muse، وسط توقعات من الخبراء بتصدر شركة مايكروسوفت للمشهد في مجال عالم الألعاب الافتراضية.",
+"Microsoft Muse",
+"وذكرت شركة مايكروسوفت في بيان خاص بها، أن نموذج الذكاء الاصطناعي الخاص بها Muse، يمثل إنجازا كبيرا حيث يمكن من خلاله مساعدة استوديوهات الألعاب في تحقيق السبق التكنولوجي، عبر تحويل الأفكار المختلفة إلى ألعاب حقيقية، بحيث يجمع بين تصرفات اللاعبين WHAM، وقواعد العالم الافتراضي.",
+"ومنحت مايكروسوفت نموذج الذكاء الاصطناعي Muse، القدرة على إنشاء العديد من نماذج الألعاب باستخدام الذكاء الاصطناعي التوليدي، كما كشف النموذج عن تقنية فائقة أثناء خضوع لعبة Bleeding edge من استديو Ninja Theory.",
+"وأكدت فاطمة كاردار، نائب الرئيس التنفيذي لقسم البنية التحتية في شركة مايكروسوفت، أن نموذج الذكاء الاصطناعي الجديد Muse، قادر على فهم فيزياء الألعاب، ورصد تحركات اللاعبين، بالإضافة إلى إلمام النموذج بالألعاب ثلاثية الأبعاد.",
+"وتمكنت شركة مايكروسوفت من إحداث طفرة حقيقية في عالم الألعاب الافتراضية، حيث أصبح نموذج Muse قادراً على توليد لعبات افتراضية كتجربة حقيقية تحاكي عالم الألعاب الحقيقية."
+]
+},
+falcons:{
+title:"Team Falcons يحقق إنجازًا عالميًا بتتويجه ببطولة Warzone في الرياض",
+img:"https://i.ibb.co/XZ8mhdLy/0410a5a1-6a89-4f9c-8708-e3ba6385e89c.jpg",
+ref:'<a href="https://www.spa.gov.sa/en/N2134531?utm_source=chatgpt.com" target="_blank">وكالة الأنباء السعودية SPA</a>',
+body:[
+"شهدت العاصمة السعودية الرياض تتويج فريق Team Falcons السعودي ببطولة “Call of Duty: Warzone” ضمن منافسات كأس العالم للرياضات الإلكترونية، بعد سلسلة مواجهات قوية جمعته بعدد من أبرز الفرق العالمية المشاركة في البطولة. وتمكن الفريق من حصد اللقب عقب أداء لافت أظهر مستوى الاحتراف والتطور الذي وصلت إليه الفرق السعودية في مجال الرياضات الإلكترونية، وسط حضور جماهيري واسع ومتابعة عالمية كبيرة للحدث.",
+"ويعد هذا الإنجاز إضافة جديدة لسجل النجاحات التي تحققها الأندية السعودية في عالم القيمنق، خاصة في ظل الدعم المتزايد الذي يحظى به قطاع الألعاب والرياضات الإلكترونية في المملكة. كما يعكس فوز الفريق حجم الاهتمام المتنامي بهذه الرياضة الحديثة، والتي أصبحت تستقطب ملايين المتابعين حول العالم، إلى جانب دورها في خلق فرص استثمارية ومهنية للشباب المهتمين بالتقنية والألعاب الرقمية.",
+"وأكد القائمون على الفريق أن هذا التتويج جاء نتيجة أشهر طويلة من التدريبات المكثفة والاستعدادات الفنية، مشيرين إلى أن المنافسة كانت قوية للغاية نظرًا لمشاركة فرق دولية مصنفة عالميًا. ويطمح الفريق إلى مواصلة تحقيق الإنجازات وتمثيل المملكة في البطولات المقبلة بصورة تليق بمكانة الرياضات الإلكترونية السعودية على المستوى العالمي."
+]
+},
+tala:{
+title:"اللاعبة السعودية تالا المازروعي تصنع التاريخ وتحقق ذهبية آسيوية في الرياضات الإلكترونية",
+img:"https://i.ibb.co/cKTTMJMz/3ef47e92-4e6f-47ba-9ba6-39b168a0118a.jpg",
+ref:'<a href="https://saudigazette.com.sa/article/656051" target="_blank">Saudi Gazette</a>',
+body:[
+"حققت اللاعبة السعودية تالا المازروعي إنجازًا تاريخيًا بعد تتويجها بالميدالية الذهبية في منافسات لعبة eFootball ضمن بطولة الألعاب الآسيوية للشباب، لتصبح أول سعودية تحصد ذهبية في تاريخ البطولة.",
+"وقدمت المازروعي أداءً مميزًا طوال مراحل البطولة، حيث تمكنت من التفوق على منافساتها من مختلف الدول الآسيوية، قبل أن تحسم المباراة النهائية لصالحها بأداء قوي وثابت دون أي خسارة خلال مشوارها في البطولة.",
+"ويعد هذا الإنجاز خطوة مهمة في مسيرة الرياضات الإلكترونية النسائية في المملكة العربية السعودية، حيث يعكس التطور الكبير في دعم وتمكين اللاعبات السعوديات في مختلف الألعاب التنافسية.",
+"كما أشادت جهات رياضية وإنترنتية بالإنجاز، معتبرة أنه يفتح الباب أمام جيل جديد من اللاعبات السعوديات للمنافسة على المستوى الإقليمي والدولي، ويعزز مكانة المملكة في مجال الرياضات الإلكترونية عالميًا."
+]
+},
+sef:{
+title:"مقابلة: الذكاء الاصطناعي والرياضات الإلكترونية.. مستقبل جديد للترفيه الرقمي",
+gallery:[
+"https://i.ibb.co/FkwxhVvv/6a94b8d2-7d63-41a0-8171-7e0f73a06ca5.jpg",
+"https://i.ibb.co/qF7zFFnh/a7389d59-6393-4bd5-b346-7df04685a7fa.jpg",
+"https://i.ibb.co/Xktn0JNX/0069d90e-b25a-47bf-aa6f-24e30f57b604.jpg",
+"https://i.ibb.co/B2GMnsJ3/383e779f-086b-4dd6-afbe-b51449eba912.jpg"
+],
+ref:'<a href="https://www.youtube.com/live/IDgmQtTH_1s?si=s1gM8uZc3iYxJdCq" target="_blank">حفل جوائز الاتحاد السعودي للرياضات الإلكترونية 2025 – البث المباشر</a>',
+body:[
+"في لقاء مباشر ضمن فعاليات SEF Awards 2025، ناقش المتحدثون التطور الكبير الذي يشهده عالم الألعاب الإلكترونية، ودور الذكاء الاصطناعي في تغيير مستقبل الترفيه الرقمي والقيمنق في السعودية.",
+"وأوضح اللقاء أن تقنيات الذكاء الاصطناعي أصبحت عنصرًا أساسيًا في تطوير الألعاب والرياضات الإلكترونية، من خلال تحسين تجربة اللاعبين، وتحليل الأداء، وتطوير شخصيات أكثر تفاعلًا وواقعية داخل الألعاب، مما أسهم في رفع مستوى المنافسة والاحترافية.",
+"كما شهد الحفل تكريم عدد من المواهب وصناع المحتوى واللاعبين المتميزين في قطاع الرياضات الإلكترونية، ومن أبرز الفائزات السعوديات:",
+"موضي الكنهل بجائزة أفضل لاعبة نسائية.",
+"تالا المزروع بجائزة أفضل موهبة نسائية صاعدة، بعد تحقيقها إنجازات لافتة في مجال الألعاب والرياضات الإلكترونية.",
+"وأشار المشاركون إلى أن الرياضات الإلكترونية لم تعد مجرد وسيلة للترفيه، بل أصبحت صناعة متكاملة تفتح فرصًا جديدة في مجالات متعددة، مثل صناعة المحتوى، والبث المباشر، وتحليل البيانات، وتطوير الألعاب باستخدام تقنيات الذكاء الاصطناعي.",
+"واختُتم اللقاء بالتأكيد على أهمية مواكبة التطورات التقنية الحديثة، والاستفادة من الذكاء الاصطناعي بصورة إيجابية تدعم الإبداع والابتكار في مجالات الألعاب والترفيه الرقمي."
+]
+},
+thamer:{
+title:"ثامر البلاّع لـ وثبة: البيانات هي وقود المستقبل.. والذكاء الاصطناعي يعيد تشكيل خارطة الرياضة والقيمنق",
+img:"https://i.ibb.co/qF7zFFnh/a7389d59-6393-4bd5-b346-7df04685a7fa.jpg",
+ref:'<a href="https://youtu.be/vc7_nola9-Q?si=G8jWrwa6xFS5NApa" target="_blank">وثبة - مقابلة ثامر البلاّع</a>',
+body:[
+"الصحفي (عبدالله مسلم): أستاذ ثامر، المملكة اليوم تقود العالم في قطاع الرياضات الإلكترونية (القيمنق) والرياضة التقليدية. كيف يتدخل الذكاء الاصطناعي في هذا المشهد؟",
+"ثامر البلاّع: التداخل عظيم وغير محدود. في الاستثمار التقني، نحن ننظر للرياضة والقيمنق كـ «منجم بيانات». الذكاء الاصطناعي اليوم ليس مجرد أكواد، بل هو الأداة التي تحلل أداء الرياضيين وتحميهم من الإصابات قبل حدوثها. وفي القيمنق تحديداً، المطورون يستخدمون الذكاء الاصطناعي التوليدي لتصميم ألعاب ذكية تتكيف مع أسلوب لعبك وتتوقع حركاتك، مما ينقل تجربة اللعب إلى مستوى غير مسبوق من الواقعية.",
+"الصحفي: يرى البعض أن الذكاء الاصطناعي قد يقتل متعة «المنافسة البشرية» في الرياضة، ما رأيك؟",
+"ثامر البلاّع: العكس تماماً، هو يرفع من جودة المنافسة. خذ مثلاً التحكيم الذكي، أو تحليل البيانات الفورية للمدربين أثناء المباريات لتغيير الخطط بناءً على نقاط ضعف الخصم التي ترصدها الكاميرات الذكية. وفي قطاع «القيمنق»، الذكاء الاصطناعي يساعد المحترفين (جيمرز الـ Esports) على تدريب أنفسهم عبر مواجهة خوارزميات تحاكي أسلوب لعب أبطال العالم، مما يختصر عليهم سنوات من التدريب التقليدي.",
+"الصحفي: بناءً على «رؤية 2030»، هل ترى فرصاً مليارية للشباب السعودي في دمج الذكاء الاصطناعي بالرياضة والألعاب؟",
+"ثامر البلاّع: بكل تأكيد، الفرص هنا ضخمة جداً ومفتوحة للجميع. الدولة تدعم قطاع الألعاب والرياضة بقوة، وجهات مثل وزارة الاتصالات وحاضنة «الكراج» و(NTDP) تفتح أبوابها لكل شاب يملك فكرة مبتكرة—مثل تطبيق ذكي يحلل أداء اللاعبين، أو خوارزمية لتطوير الألعاب. نصيحتي لكل مهتم بالقيمنق أو الرياضة: لا تكن مجرد مستهلك، طوّر مهاراتك وابدأ مشروعك، فالمنظومة مهيأة تماماً لصناعة شركات مليارية سعودية في هذا المجال.",
+"خاتمة المقابلة:",
+"في نهاية هذا الحوار الشيق، يتضح لنا أن الذكاء الاصطناعي لم يعد مجرد رفاهية تقنية، بل هو «اللاعب الخفي» الذي يقود ثورة التغيير في ملاعب الرياضة وشاشات القيمنق. كلمات الأستاذ ثامر البلاّع حملت رسالة واضحة وملهمة للشباب السعودي: المستقبل لا ينتظر المترددين، والدعم الحكومي اللامحدود تحت مظلة رؤية 2030 يمثل التوقيت المثالي لتحويل الشغف بالألعاب والرياضة إلى مشاريع تقنية استثمارية تقود المملكة نحو الصدارة العالمية."
+]
+},
+entertainment:{
+title:"تقرير: دخول الذكاء الاصطناعي كل أركان صناعة الترفيه",
+img:"https://i.ibb.co/rRRSKm4W/b47f25b0-c924-4374-b3b4-1d85c5ea635f.jpg",
+ref:'<a href="https://share.google/iwTBus7Dx1mSY4TEZ" target="_blank">البوابة التقنية</a>',
+body:[
+"يشهد مطلع عام 2026 تحولاً جذرياً في عالم الفنون وصناعة المتعة، حيث تغلغل الذكاء الاصطناعي في كافة مفاصل القطاع من التأليف الموسيقي والتمثيل الرقمي إلى الإخراج السينمائي، وهو ما تجلى في إحياء أصوات فنانين راحلين واعتماد شركات كبرى على خوارزميات التوليد لإنتاج محتوى بصري فائق الدقة بتكلفة منخفضة.",
+"وبينما تفتح هذه التقنيات آفاقاً إبداعية غير مسبوقة وتغير من نمط استهلاك الجمهور للمحتوى الترفيهي، تظل التساؤلات الأخلاقية قائمة حول مستقبل العنصر البشري ومدى قدرة الآلة على تعويضه، مما يجعل العام الحالي مرحلة فاصلة في تحديد ملامح الهوية الجديدة لصناعة الترفيه العالمية."
+]
+},
+meta:{
+title:"تقرير: موجة استياء واسعة تضرب موظفي ميتا بسبب الذكاء الاصطناعي",
+img:"https://i.ibb.co/KcwNYg8L/77ca3500-288e-4124-ab90-709c9b8ce965.jpg",
+ref:'<a href="https://aitnews.com/?p=606260" target="_blank">بوابة أخبار اليوم / AIT News</a>',
+body:[
+"تواجه شركة ميتا أزمة داخلية متصاعدة جراء استراتيجيتها الطموحة في مجال الذكاء الاصطناعي، حيث أثار برنامج «مبادرة قدرات النماذج» (MCI) موجة استياء واسعة بين الموظفين لفرضه رقابة لصيقة تشمل تتبع حركات الفأرة ومحتوى الشاشات في تطبيقات العمل، وهو ما اعتبره العاملون انتهاكاً صارخاً للخصوصية خاصة مع غياب خيار تعطيل التتبع.",
+"ويتزامن هذا التوتر مع حالة من القلق الوجودي تسيطر على بيئة العمل، إذ يشعر الموظفون أنهم مجبرون على تدريب الأنظمة الذكية التي ستستبدلهم مستقبلاً، لاسيما وأن مارك زوكربيرج يبرر تسريح نحو 10% من القوة العاملة برفع الكفاءة عبر الأتمتة، في حين تواصل الشركة إنفاق مليارات الدولارات على البنية التحتية واستقطاب الخبراء بعروض فلكية، مما كشف عن فجوة حادة بين استثمارات الشركة التقنية الضخمة وبين تدهور الروح المعنوية والأمان الوظيفي لكوادرها البشرية."
+]
+}
+};
+const order=["falcons","tala","aiGames","muse","sef","thamer","entertainment","meta"];
+function showHome(){
+document.getElementById("homePage").classList.add("active");
+document.getElementById("articlePage").classList.remove("active");
+window.scrollTo(0,0);
+}
+function goSection(id){
+showHome();
+setTimeout(function(){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+},100);
+}
+function showArticle(id){
+let article=articles[id];
+document.getElementById("homePage").classList.remove("active");
+document.getElementById("articlePage").classList.add("active");
+document.getElementById("articleTitle").innerText=article.title;
+let content=`<h3>${article.title}</h3>`;
+if(article.gallery){
+content+=`<div class="gallery">`;
+article.gallery.forEach(function(img){
+content+=`<img src="${img}" alt="${article.title}">`;
+});
+content+=`</div>`;
+}else{
+content+=`<img class="article-img" src="${article.img}" alt="${article.title}">`;
+}
+article.body.forEach(function(p){
+content+=`<p>${p}</p>`;
+});
+content+=`<div class="ref"><b>المرجع / المصدر:</b> ${article.ref}</div>`;
+let index=order.indexOf(id);
+let prev=order[index-1];
+let next=order[index+1];
+content+=`<div class="nav-buttons">`;
+if(prev){
+content+=`<button onclick="showArticle('${prev}')">⬅ السابق</button>`;
+}else{
+content+=`<button onclick="showHome()">⬅ الرئيسية</button>`;
+}
+if(next){
+content+=`<button onclick="showArticle('${next}')">التالي ➡</button>`;
+}else{
+content+=`<button onclick="showHome()">الرئيسية ➡</button>`;
+}
+content+=`</div>`;
+document.getElementById("articleContent").innerHTML=content;
+window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
